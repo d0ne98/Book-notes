@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs") %>
+<div class="addFormDiv">
+<form class="add-form" action="/add" method="post">
+  <input class="book-title" type="text" name="bookTitle" placeholder="Book Title" required autofocus>
+  <input class="book-isbn" type="number"   name="bookIsbn" placeholder="ISBN">
+  <input class="book-score" type="number" min="0" max="10" step="0.1"  name="bookScore" placeholder="Score" required>
+  <input class="book-date" type="date" name="bookDate" required>
+  <textarea class="book-description" name="bookDescription" placeholder="Write your summary here ..." required></textarea>
+  <input class="button" type="submit" name="Submit">
+</form>
+</div>
+
+<%- include("partials/footer.ejs") %>

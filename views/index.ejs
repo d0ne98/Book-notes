@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+
+ <div class="body">
+    
+   <% if(locals.books){ %>
+      <% books.forEach(book => { %>
+   <div class="book">
+     <% if(book.isbn){ var image = `https://covers.openlibrary.org/b/ISBN/${book.isbn}-M.jpg?default=false`} else{var image = "./images/images.jpg"} %>
+     <img src=<%- image %> onclick="location.href='/book/<%- book.id %>' "  alt="Book's cover">
+       <a href="/book/<%- book.id %> " > <h2> <%= book.title %></h2> </a>
+       <p>Date read: <%= book.date.toLocaleDateString() %> </p>
+       <p> Score: <%= book.score %> </p>
+    
+  </div>
+  <% });  } %>
+ </div>
+</div>
+
+
+
+
+<%- include("partials/footer.ejs") %>

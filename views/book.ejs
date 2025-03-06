@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+ <div class="book-body">
+
+    <div class="bookpage">
+        <% if(books.isbn){ var image = `https://covers.openlibrary.org/b/ISBN/${books.isbn}-M.jpg?default=false`} else{var image = "../images/images.jpg"} %>
+        <img src=<%- image %>   alt="Book's cover">
+          <h2> <%= books.title %></h2> 
+          <p>Date read: <%= books.date.toLocaleDateString() %> </p>
+          <p> Score: <%= books.score %> </p>  
+     </div>
+     <div class="book-p">
+        <h2> My opinion</h2>
+        <p><%=books.description %></p>
+     </div>
+     <div class="book-form">
+        <form method="post">
+            <input type="hidden" name="bookId" value="<%- books.id %>">
+            <button  type="submit" formaction="/edit">Edit</button>
+            <button type="submit" formaction="/delete">Delete</button>
+        </form>
+     </div>
+    </div>
+
+ 
+
+
+
+<%- include("partials/footer.ejs") %>
